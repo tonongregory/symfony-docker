@@ -10,11 +10,13 @@ src/vendor: #[Composer] install dependencies
 
 upd: #[Docker] Start containers detached
 	touch .docker/.env
+	touch .docker/docker-compose.override.yml
 	make src/vendor
 	$(DOCKER_COMPOSE) up --remove-orphans --detach
 
 up: #[Docker] Start containers
 	touch .docker/.env
+	touch .docker/docker-compose.override.yml
 	make src/vendor
 	$(DOCKER_COMPOSE) up --remove-orphans
 
